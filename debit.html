@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="debit.css">
+    <title>Debit and Credit Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Debit and Credit Tracker</h1>
+        <div class="form-group">
+            <input type="number" id="amount" placeholder="Enter amount" />
+            <select id="transactionType">
+                <option value="debit">Debit</option>
+                <option value="credit">Credit</option>
+            </select>
+            <button id="addTransaction">Add Transaction</button>
+        </div>
+        <div class="balance">
+            <h2>Current Balance: ₹<span id="balance">0</span></h2>
+        </div>
+        <div class="transactions">
+            <h2>Transactions</h2>
+            <ul id="transactionList"></ul>
+        </div>
+    </div>
+    <button class="btn btn-primary" id="back">back</button>
+       <script>
+          let balance = 90000;
+const balanceDisplay = document.getElementById('balance');
+const transactionList = document.getElementById('transactionList');
+const addTransactionButton = document.getElementById('addTransaction');
+
+addTransactionButton.addEventListener('click', () => {
+    const amountInput = document.getElementById('amount');
+    const amount = parseFloat(amountInput.value);
+    const transactionType = document.getElementById('transactionType').value;
+
+    if (isNaN(amount) || amount <= 0) {
+        alert("Please enter a valid amount");
+        return;
+    }
+
+    if (transactionType === 'debit') {
+        balance -= amount;
+        transactionList.innerHTML += `<li>Debit: ₹${amount}</li>`;
+    } else {
+        balance += amount;
+        transactionList.innerHTML += `<li>Credit: ₹${amount}</li>`;
+    }
+
+    balanceDisplay.textContent = balance.toFixed(2);
+    amountInput.value = '';
+})
+   let one= document.getElementById("back");
+   one.addEventListener("click",function(){
+
+       
+      
+        
+           
+         location.href="acc.html";
+      
+})
+
+       </script>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

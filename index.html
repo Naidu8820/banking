@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="log.css">
+</head>
+<body>
+    <div class="container">
+        
+        <h2>NET BANKING</h2>
+        
+        
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required >
+            </div>
+            
+           <input type="submit" id="mybtn">
+             <p class="message">not register? <a href="#">forgetpassword</a></p>
+           
+        
+    </div>   
+    
+
+    <script>
+        document.getElementById("mybtn").addEventListener("click",method);
+        function method()
+        {
+        
+            let a=(document.getElementById("username").value);
+            let b=parseInt(document.getElementById("password").value);
+            let username= "lucky";
+            let password= 1234;
+            if(a === username && b === 1234)
+        {
+            window.location.href="acc.html";
+        }
+
+        }
+    </script>
+</body>
+</html>
